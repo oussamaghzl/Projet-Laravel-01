@@ -4,12 +4,11 @@ Pour un club de voleyball il faut réaliser un site internet, la seule chose qu'
 pour les informations 
 
 chaque équipes a un 
-
 	nom de club, 
 	une ville qu'elle représente , 
 	un pays et 
 	un maximum de joueur possible dans leur équipe 
-	et par role(2 avant, 2 centraux, 2 arriere, 3remplacants)..
+	et par role(2 avant, 2 centraux, 2 arriere, 3remplacants).
 
 exemple : Les Fifous , Belgique, 7
 
