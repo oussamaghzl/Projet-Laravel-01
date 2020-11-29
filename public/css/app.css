@@ -10944,6 +10944,10 @@ a.text-dark:focus {
   color: #b5d83e;
 }
 
+.sidenav .titre-nav {
+  padding: 0px;
+}
+
 .footer {
   position: absolute;
   bottom: 0;
@@ -10984,6 +10988,12 @@ a.text-dark:focus {
 .centree {
   display: flex;
   justify-content: center;
+}
+
+.accueil {
+  width: 1000px;
+  margin-top: 10vh;
+  margin-left: 40vh;
 }
 
 footer {

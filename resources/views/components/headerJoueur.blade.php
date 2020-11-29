@@ -2,7 +2,7 @@
     <div>
         <img src="{{asset('img/volleyball01.gif')}}" alt="">
 
-        <a href="/"><h5>Ultimate Volleyball</h5></a>
+        <a href="/" class="titre-nav"><h5>Ultimate Volleyball</h5></a>
         
     </div>
 

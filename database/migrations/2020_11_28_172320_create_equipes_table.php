@@ -14,15 +14,20 @@ class CreateEquipesTable extends Migration
     public function up()
     {
         Schema::create('equipes', function (Blueprint $table) {
+
             $table->id();
+
             $table->string('coach');
-            $table->string("nom");
+            $table->string("equipe");
             $table->string("ville");
             $table->integer('nombres');
             $table->unsignedBigInteger('pays_id');
-            $table->foreign('pays_id')->references('id')->on('pays');            $table->integer("nombre");
+            $table->foreign('pays_id')->references('id')->on('pays');
+
             $table->timestamps();
+            
         });
+
     }
 
     /*
