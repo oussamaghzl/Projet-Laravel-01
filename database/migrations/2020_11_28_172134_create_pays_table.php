@@ -15,6 +15,8 @@ class CreatePaysTable extends Migration
     {
         Schema::create('pays', function (Blueprint $table) {
             $table->id();
+            $table->string('pays');
+            $table->string('continent');
             $table->timestamps();
         });
     }

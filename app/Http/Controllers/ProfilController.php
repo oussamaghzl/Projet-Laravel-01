@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Equipe;
+use App\Models\Pays;
 use App\Models\Profil;
 use Illuminate\Http\Request;
 
@@ -35,7 +37,27 @@ class ProfilController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $profil=new Profil;
+        $profil->nom=$request->nom;
+        $profil->age=$request->age;
+        $profil->prenom=$request->prenom;
+        $profil->numeros=$request->numeros;
+        $profil->poste=$request->poste;
+        $profil->email=$request->email;
+        $profil->genre=$request->genre;
+        $profil->save();
+
+        $pays=new Pays();
+        $pays->pays=$request->pays;
+        $pays->profil_id=$profil->id;
+        $pays->save();
+
+        $equipe=new Equipe();
+        $equipe->equipe=$request->equipe;
+        $equipe->profil_id=$profil->id;
+        $equipe->save();
+
+        return redirect()->back();
     }
 
     /**

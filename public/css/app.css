@@ -10914,10 +10914,6 @@ a.text-dark:focus {
   overflow-x: hidden;
 }
 
-.row {
-  background-color: #172f40;
-}
-
 .sidenav img {
   padding-top: 10px;
   padding-left: 20px;
@@ -10948,7 +10944,7 @@ a.text-dark:focus {
   color: #b5d83e;
 }
 
-.sidenav .footer {
+.footer {
   position: absolute;
   bottom: 0;
   font-size: 12px;
@@ -10965,7 +10961,111 @@ a.text-dark:focus {
           text-decoration-line: underline;
 }
 
+.titre2 {
+  font-family: "Shadows Into Light", cursive;
+  font-size: 30px;
+  text-align: center;
+  padding-top: 50px;
+  -webkit-text-decoration-line: underline;
+          text-decoration-line: underline;
+}
+
 .main {
   margin-left: 200px;
+}
+
+.choix img {
+  border-radius: 10px;
+  margin-top: 40px;
+  width: 800px;
+  border: solid yellow 5px;
+}
+
+.centree {
+  display: flex;
+  justify-content: center;
+}
+
+footer {
+  display: flex;
+  justify-content: center;
+  align-content: center;
+  margin-top: 70px;
+  background-color: #343a40;
+}
+
+footer .row {
+  margin: 80px;
+  width: 55%;
+}
+
+footer h5 {
+  color: white;
+}
+
+footer p {
+  font-size: 16px;
+  white-space: pre-line;
+}
+
+footer button {
+  border-radius: 5px;
+  border: 2px solid #6c757d;
+  color: #6c757d;
+  padding: 4px 10px;
+  margin: 5px;
+  background-color: #343a40;
+  font-size: 17px;
+}
+
+footer button:hover {
+  background-color: white;
+  color: black;
+  border: 2px solid black;
+}
+
+.bgBlackFooter {
+  text-align: center;
+  font-size: 21px;
+  padding: 10px;
+  width: 100%;
+  background-color: black;
+}
+
+.paraFooter {
+  font-size: 17px;
+}
+
+@media screen and (max-width: 640px) {
+  footer .row {
+    width: 100%;
+  }
+
+  footer .row .col-lg-4 {
+    margin-bottom: 50px;
+  }
+}
+
+@media (min-width: 768px) and (max-width: 1024px) {
+  footer .row {
+    width: 100%;
+  }
+
+  .infoCust {
+    text-align: center;
+    padding: 10px 0px;
+  }
+
+  .infoCust h5 {
+    height: 72px;
+  }
+
+  .infoCust p {
+    margin: 15px;
+  }
+}
+
+body {
+  overflow-x: hidden;
 }
 

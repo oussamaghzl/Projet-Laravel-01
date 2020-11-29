@@ -16,15 +16,49 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('home');
 });
-Route::get('/equipe', function () {
-    return view('pages.equipe');
+
+// Coach
+
+
+Route::get('/equipe-coach', function () {
+    return view('pages.Coach.equipeCoach');
 });
-Route::get('/liste-joueur', function () {
-    return view('pages.listeJoueur');
+Route::get('/liste-joueur-coach', function () {
+    return view('pages.Coach.listeJoueurCoach');
 });
-Route::get('/dashboard', function () {
-    return view('pages.dashboard');
+Route::get('/dashboard-coach', function () {
+    return view('pages.Coach.dashboardCoach');
 });
-Route::get('/contact', function () {
-    return view('pages.contact');
+Route::get('/contact-coach', function () {
+    return view('pages.Coach.contactCoach');
+});
+
+Route::post('/profil-coach',[ProfilController::class, 'store']);
+
+
+//Joueur
+Route::get('/inscription-joueur', function () {
+    return view('pages.Joueur.createJoueur');
+});
+Route::get('/equipe-joueur', function () {
+    return view('pages.Joueur.equipeJoueur');
+});
+Route::get('/liste-joueur-joueur', function () {
+    return view('pages.Joueur.listeJoueur');
+});
+Route::get('/dashboard-joueur', function () {
+    return view('pages.Joueur.dashboardJoueur');
+});
+Route::get('/contact-joueur', function () {
+    return view('pages.Joueur.contactJoueur');
+});
+
+//accueil
+
+Route::get('/coach',function () {
+    return view('pages.Coach.accueilCoach');
+});
+
+Route::get('/joueur',function () {
+    return view('pages.Joueur.accueilJoueur');
 });
