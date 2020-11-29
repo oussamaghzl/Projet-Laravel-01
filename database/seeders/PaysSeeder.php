@@ -14,6 +14,19 @@ class PaysSeeder extends Seeder
      */
     public function run()
     {
-        
+        DB::table('pays')->insert([
+            [
+                'pays' => 'Algerie',
+                'continent' => 'Afrique'
+            ],
+            [
+                'pays' => 'Maroc',
+                'continent' => 'Afrique'
+            ],
+            [
+                'pays' => 'Espagne',
+                'continent' => 'Europe'
+            ],
+        ]);
     }
 }
