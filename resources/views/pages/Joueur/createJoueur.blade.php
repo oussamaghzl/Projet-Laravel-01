@@ -31,10 +31,9 @@
             <input type="email" class="form-control" id="inputEmail4" name="email">
         </div>
         <div class="form-group col-md-6">
-            <label for="inputState">Pays</label>
-            <select id="inputState" class="form-control" name="genre">
-              <option selected>Homme</option>
-            </select>
+            <label for="inputState">Origine</label>
+            <input type="text" class="form-control" id="inputCity" name="origin">
+
           </div>
           </div>    
           

@@ -22,10 +22,9 @@ class CreateProfilsTable extends Migration
             $table->string('email');
             $table->string('genre');
             $table->string("poste");
+            $table->string("origin");
             $table->unsignedBigInteger('equipes_id');
             $table->foreign('equipes_id')->references('id')->on('equipes');
-            $table->unsignedBigInteger('pays_id');
-            $table->foreign('pays_id')->references('id')->on('pays');
             $table->unsignedBigInteger('photo_id');
             $table->foreign('photo_id')->references('id')->on('photos');
             $table->timestamps();

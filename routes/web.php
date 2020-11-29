@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\PaysController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -20,12 +21,13 @@ Route::get('/', function () {
 // Coach
 
 
-Route::get('/equipe-coach', function () {
-    return view('pages.Coach.equipeCoach');
-});
-Route::get('/liste-joueur-coach', function () {
+
+Route::get('/equipe-coach', [PaysController::class, 'index']);
+
+Route::get('/listeJoueurCoach', function () {
     return view('pages.Coach.listeJoueurCoach');
 });
+
 Route::get('/dashboard-coach', function () {
     return view('pages.Coach.dashboardCoach');
 });
@@ -35,6 +37,7 @@ Route::get('/contact-coach', function () {
 
 Route::post('/profil-coach',[ProfilController::class, 'store']);
 
+Route::post('/store-equipe',[PaysController::class, 'store']);
 
 //Joueur
 Route::get('/inscription-joueur', function () {

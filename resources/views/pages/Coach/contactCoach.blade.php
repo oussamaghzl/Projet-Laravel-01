@@ -2,6 +2,6 @@
 
 @section('content')
     
-    <h1 class="titre">Liste des Joueurs</h1>
+    <h1 class="titre">Contact</h1>
 
 @endsection
