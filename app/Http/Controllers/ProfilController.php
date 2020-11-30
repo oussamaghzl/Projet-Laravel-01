@@ -31,7 +31,10 @@ class ProfilController extends Controller
 
     public function store(Request $request)
     {
+      
+
         $profil=new Profil;
+
         $profil->nom=$request->nom;
         $profil->prenom=$request->prenom;
         $profil->age=$request->age;
@@ -42,12 +45,23 @@ class ProfilController extends Controller
         $profil->photo=$request->file('photo')->hashName();
         $profil->equipes_id=$request->equipes_id;
         $profil->poste_id=$request->poste_id;
-
+        
+        if($request->equipes_id==$profil->equipes_id && $profil->equipe->membres<$profil->equipe->nombres){
+            
+        $profil->equipe->increment("membres", 1);
+      
         $profil->save();
 
         $request->file('photo')->storePublicly('images','public');
 
         return redirect()->back();
+
+        }else{
+
+            return redirect()->back()->with('status', "L'équipe!");
+        }
+       
+
     }
 
 

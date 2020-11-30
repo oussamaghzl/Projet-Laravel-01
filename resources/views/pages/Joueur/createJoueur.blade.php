@@ -4,8 +4,16 @@
     
     <h1 class="titre mb-5">Formulaire</h1>
 
+
+
       <form action="/create-joueur" enctype="multipart/form-data" class="bg-white container pt-2 pb-5 px-4 border border-dark rounded" method="post">
           @csrf
+
+          @if (session('status'))
+           <div class="alert alert-success">
+            {{ session('status') }}
+          </div>
+          @endif
           <h1 class="titre2">S'inscrire</h1>
 
           <div class="container mt-5">
@@ -44,6 +52,17 @@
                   <option>Autres</option>
                 </select>
               </div>
+              
+              <div class="form-group mx-3">
+                <label for="inputState">Choisissez votre equipe </label>
+                <select id="inputState" class="form-control" name="equipes_id">
+                  <option selected active>Choix equipe</option>
+                    @foreach ($equipes as $item)
+                      <option value="{{$item->id}}">{{$item->equipe}}</option>
+                    @endforeach
+                </select>
+              </div>
+
               <div class="form-group mx-3">
                 <label for="inputState">Poste</label>
                 <select id="inputState" class="form-control" name="poste_id">
@@ -56,15 +75,6 @@
                 </select>
               </div>
 
-              <div class="form-group mx-3">
-                <label for="inputState">Choisissez votre equipe </label>
-                <select id="inputState" class="form-control" name="equipes_id">
-                  <option selected active>Choix equipe</option>
-                    @foreach ($equipes as $item)
-                      <option value="{{$item->id}}">{{$item->equipe}}</option>
-                    @endforeach
-                </select>
-              </div>
               <div class="form-group mx-5 pt-4">
                 <label for="imagee">Votre photo</label>
                 <input type="file" name="photo" id="imagee">
