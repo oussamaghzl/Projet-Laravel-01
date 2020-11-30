@@ -23,6 +23,7 @@ Route::get('/', function () {
 Route::get('/inscription-joueur', [ProfilController::class, 'create']);
 Route::post('/create-joueur', [ProfilController::class, 'store']);
 
+Route::get('/liste-equipe-joueur', [ProfilController::class, 'index']);
 
 
 

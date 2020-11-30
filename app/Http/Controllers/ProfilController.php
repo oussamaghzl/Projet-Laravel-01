@@ -18,7 +18,11 @@ class ProfilController extends Controller
      */
     public function index()
     {
-        //
+        $pays = Pays::all();
+        $equipes = Equipe::all();
+        $postes = Poste::all();
+        return view('pages.Joueur.equipeJoueur', compact('pays','equipes','postes'));
+    
     }
 
     /**

@@ -10996,6 +10996,55 @@ a.text-dark:focus {
   margin-left: 40vh;
 }
 
+.affichageEquipe {
+  margin-left: 20px;
+  margin-right: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.affichageEquipe .terrain {
+  width: 600px;
+  height: 700px;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  border-radius: 30px;
+  border: solid black 2px;
+}
+
+.affichageEquipe .terrain .carte {
+  position: absolute;
+  width: 100px;
+  height: 120px;
+  cursor: cell;
+}
+
+.affichageEquipe .terrain .carte1 {
+  margin: 160px 0px 0px 160px;
+}
+
+.affichageEquipe .terrain .carte2 {
+  margin: 280px 0px 0px 140px;
+}
+
+.affichageEquipe .terrain .carte3 {
+  margin: 400px 0px 0px 120px;
+}
+
+.affichageEquipe .terrain .carte4 {
+  margin: 160px 0px 0px 390px;
+}
+
+.affichageEquipe .terrain .carte5 {
+  margin: 280px 0px 0px 370px;
+}
+
+.affichageEquipe .terrain .carte6 {
+  margin: 400px 0px 0px 350px;
+}
+
 footer {
   display: flex;
   justify-content: center;

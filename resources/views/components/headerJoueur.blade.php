@@ -8,8 +8,8 @@
 
     <div> 
         <a href="/inscription-joueur">S'inscrire</a>
-        <a href="/equipe-joueur">Les équipes</a>
-        <a href="/liste-joueur-joueur">Liste joueurs</a>
+        <a href="/liste-equipe-joueur">Les équipes</a>
+        <a href="">Liste joueurs</a>
         <a href="/dashboard-joueur">DashBoard</a> 
 
     </div >

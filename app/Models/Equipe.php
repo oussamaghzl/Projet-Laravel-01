@@ -8,4 +8,6 @@ use Illuminate\Database\Eloquent\Model;
 class Equipe extends Model
 {
     use HasFactory;
+
+    
 }
