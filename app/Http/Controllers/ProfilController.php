@@ -7,6 +7,7 @@ use App\Models\Pays;
 use App\Models\Poste;
 use App\Models\Profil;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Storage;
 
 class ProfilController extends Controller
 {
@@ -17,9 +18,18 @@ class ProfilController extends Controller
         $equipes = Equipe::all();
         $postes =  Poste::all();
 
-        return view('pages.Coach.listeJoueurCoach', compact('profil','equipes','postes'));
+        return view('pages.Joueur.equipeJoueur', compact('profil','equipes','postes'));
     }
 
+    public function index2()
+    {
+
+        $profil =  Profil::all();
+        $equipes = Equipe::all();
+        $postes =  Poste::all();
+
+        return view('pages.Joueur.listeJoueur', compact('profil','equipes','postes'));
+    }
     public function create()
     {
         $pays = Pays::all();
@@ -63,9 +73,14 @@ class ProfilController extends Controller
     }
 
 
-    public function show(Profil $profil)
+    public function show($id)
     {
-        //
+        $profil =  Profil::find($id);
+        $equipes = Equipe::all();
+        $postes =  Poste::all();
+
+        return view('pages.Joueur.show.showJoueur', compact('profil','equipes','postes'));
+    
     }
 
     /**
@@ -74,9 +89,14 @@ class ProfilController extends Controller
      * @param  \App\Models\Profil  $profil
      * @return \Illuminate\Http\Response
      */
-    public function edit(Profil $profil)
+    public function edit($id)
     {
-        //
+        $profil =  Profil::find($id);
+        $equipes = Equipe::all();
+        $postes =  Poste::all();
+
+        return view('pages.Joueur.editJoueur', compact('profil','equipes','postes'));
+    
     }
 
     /**
@@ -86,9 +106,40 @@ class ProfilController extends Controller
      * @param  \App\Models\Profil  $profil
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Profil $profil)
+    public function update(Request $request, $id)
     {
-        //
+        $validateForm = $request->validate([
+            "nom" => "required",
+            "prenom" => "required",
+            "age" => "required",
+            "numeros" => "required",
+            "email" => "required",
+            "genre" => "required",
+            "photo" => "required",
+            "equipes_id" => "required",
+            "poste_id" => "required",
+        ]);
+
+        $profil= Profil::find($id);
+
+        $profil->nom=$request->nom;
+        $profil->prenom=$request->prenom;
+        $profil->age=$request->age;
+        $profil->numeros=$request->numeros;
+        $profil->email=$request->email;
+        $profil->genre=$request->genre;
+        $profil->origin=$request->origin;
+        $profil->photo=$request->file('photo')->hashName();
+        $profil->equipes_id=$request->equipes_id;
+        $profil->poste_id=$request->poste_id;
+
+        $profil->save();
+
+        Storage::disk('public')->delete('images/' . $profil->url);
+
+        $request->file('photo')->storePublicly('images','public');
+
+        return redirect()->back();
     }
 
     /**
@@ -97,8 +148,13 @@ class ProfilController extends Controller
      * @param  \App\Models\Profil  $profil
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Profil $profil)
+    public function destroy($id)
     {
-        //
+        $Profil = Profil::find($id);
+        $Profil->delete();
+        
+        Storage::disk('public')->delete('images/' . $Profil->photo);
+
+        return redirect()->back();
     }
 }

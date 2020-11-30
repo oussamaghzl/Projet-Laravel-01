@@ -21,33 +21,33 @@
           <div class="form-row">
               <div class="form-group col-md-6">
                   <label for="inputCity">Nom</label>
-                  <input type="text" class="form-control" id="inputCity" name="nom">
+                  <input type="text" value="{{old('nom')}}" class="form-control" id="inputCity" name="nom">
                 </div>
                 <div class="form-group col-md-6">
                   <label for="inputCity">Prenom</label>
-                  <input type="text" class="form-control" id="inputCity" name="prenom">
+                  <input type="text" value="{{old('prenom')}}" class="form-control" id="inputCity" name="prenom">
                 </div>
                 <div class="form-group col-md-6">
                   <label for="inputCity">Age</label>
-                  <input type="number" class="form-control" id="inputCity" name="age">
+                  <input type="number" value="{{old('age')}}" class="form-control" id="inputCity" name="age">
                 </div>
                 <div class="form-group col-md-6">
                   <label for="inputCity">Pays d'origine</label>
-                  <input type="text" class="form-control" id="inputCity" name="origin">
+                  <input type="text" value="{{old('origin')}}" class="form-control" id="inputCity" name="origin">
                 </div>
               <div class="form-group col-md-6">
                   <label for="inputCity">Numero de telephone</label>
-                  <input type="text" class="form-control" id="inputCity" name="numeros">
+                  <input type="text" value="{{old('numeros')}}" class="form-control" id="inputCity" name="numeros">
                 </div>
                 <div class="form-group col-md-6">
               <label for="inputEmail4">Email</label>
-              <input type="email" class="form-control" id="inputEmail4" name="email">
+              <input type="email" value="{{old('email')}}" class="form-control" id="inputEmail4" name="email">
           </div>  
             
           <div class="form-row">
               <div class="form-group mx-3">
                 <label for="inputState">Genre</label>
-                <select id="inputState" class="form-control" name="genre">
+                <select id="inputState" value="{{old('genre')}}" class="form-control" name="genre">
                   <option selected>Homme</option>
                   <option>Femme</option>
                   <option>Autres</option>
@@ -56,7 +56,7 @@
               
               <div class="form-group mx-3">
                 <label for="inputState">Choisissez votre equipe </label>
-                <select id="inputState" class="form-control" name="equipes_id">
+                <select id="inputState" class="form-control" value="{{old('equipes_id')}}" name="equipes_id">
                   <option selected active>Choix equipe</option>
                     @foreach ($equipes as $item)
                       <option value="{{$item->id}}">{{$item->equipe}}</option>
@@ -66,7 +66,7 @@
 
               <div class="form-group mx-3">
                 <label for="inputState">Poste</label>
-                <select id="inputState" class="form-control" name="poste_id">
+                <select id="inputState" class="form-control" value="{{old('poste_id')}}" name="poste_id">
                   <option selected active>choix postes</option>
 
                   @foreach ($postes as $item)

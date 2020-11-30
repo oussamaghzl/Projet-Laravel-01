@@ -2,8 +2,11 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Equipe;
 use App\Models\Poste;
+use App\Models\Profil;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 class PosteController extends Controller
 {
@@ -14,7 +17,45 @@ class PosteController extends Controller
      */
     public function index()
     {
-        //
+        $teamHasard = Equipe::inRandomOrder()->limit(10)->get();
+        $profil= Profil::all();
+
+
+        $dataH= DB::table('profils')
+        ->where('genre','Homme')
+        ->select('nom')
+        ->get();
+        $teamHasardJ= DB::table('profils')
+        ->where('equipes_id',1)
+        ->inRandomOrder()
+        ->limit(4)
+        ->get();
+        $teamHasardE= DB::table('profils')
+        ->whereNotIn('equipes_id', [1])
+        ->inRandomOrder()
+        ->limit(4)
+        ->get();
+        $teamHasardNR= DB::table('equipes')
+        ->where('membres', '!=','nombres')
+        ->inRandomOrder()
+        ->limit(2)
+        ->get();
+        $fille= DB::table('profils')
+        ->where('genre','Femme')
+        ->whereNotIn('equipes_id', [1])
+        ->inRandomOrder()
+        ->limit(5)
+        ->get();
+        $homme= DB::table('profils')
+        ->where('genre','Homme')
+        ->whereNotIn('equipes_id', [1])
+        ->inRandomOrder()
+        ->limit(5)
+        ->get();
+        $equipe= Equipe::all();
+
+
+        return view('pages.Joueur.dashboardJoueur', compact('dataH','fille','homme','profil','equipe','teamHasardNR', 'teamHasardE','teamHasard', 'teamHasardJ'));
     }
 
     /**

@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\PaysController;
+use App\Http\Controllers\PosteController;
 use App\Http\Controllers\ProfilController;
 use Illuminate\Support\Facades\Route;
 
@@ -20,10 +21,23 @@ Route::get('/', function () {
 });
 
 
+
 Route::get('/inscription-joueur', [ProfilController::class, 'create']);
-Route::post('/create-joueur', [ProfilController::class, 'store']);
 
 Route::get('/liste-equipe-joueur', [ProfilController::class, 'index']);
+Route::get('/liste-joueur', [ProfilController::class, 'index2']);
+
+Route::get('/show-joueur/{id}', [ProfilController::class, 'show']);
+Route::get('/edit-joueur/{id}', [ProfilController::class, 'edit']);
+
+
+Route::post('/create-joueur', [ProfilController::class, 'store']);
+Route::post('/modifier-joueur/{id}', [ProfilController::class, 'update']);
+Route::post('/supprimer-joueur/{id}', [ProfilController::class, 'destroy']);
+
+
+
+
 
 
 // Coach
@@ -48,9 +62,8 @@ Route::post('/store-equipe',[PaysController::class, 'store']);
 Route::get('/liste-joueur-joueur', function () {
     return view('pages.Joueur.listeJoueur');
 });
-Route::get('/dashboard-joueur', function () {
-    return view('pages.Joueur.dashboardJoueur');
-});
+Route::get('/dashboard-joueur', [PosteController::class, "index"]);
+
 Route::get('/contact-joueur', function () {
     return view('pages.Joueur.contactJoueur');
 });
@@ -64,3 +77,4 @@ Route::get('/coach',function () {
 Route::get('/joueur',function () {
     return view('pages.Joueur.accueilJoueur');
 });
+
