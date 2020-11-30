@@ -11,11 +11,11 @@
 <link href="https://fonts.googleapis.com/css2?family=Hind+Madurai:wght@300&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Ranchers&family=Shadows+Into+Light&display=swap" rel="stylesheet">
 </head>
-<body style="background-image: url('{{asset('img/wallpaper.gif')}}')">
+<body>
     
     @include('components.headerJoueur')
 
-    <div class="main">
+    <div class="main bg-light">
         @yield('content')
         
 

@@ -22,16 +22,13 @@ class EquipeSeeder extends Seeder
                 'ville' => 'Rien',
                 'nombres' => '10',
                 'pays_id' => 4,
-                'membres' => 1,
              ],
              [
                  'coach' => 'Zidane',
                  'equipe' => 'Real Madrid',
                  'ville' => 'Madrid',
-                 'nombres' => '2',
+                 'nombres' => '6',
                  'pays_id' => 3,
-                 'membres' => 1,
-
 
              ],
              [
@@ -40,8 +37,6 @@ class EquipeSeeder extends Seeder
                  'ville' => 'Tanger',
                  'nombres' => '5',
                  'pays_id' => 2,
-                 'membres' => 2,
-
              ],
              [
                  'coach' => 'Oussama',
@@ -49,8 +44,6 @@ class EquipeSeeder extends Seeder
                  'ville' => 'Oran',
                  'nombres' => '7',
                  'pays_id' => 1,
-                 'membres' => 0,
-
              ],
          ]);
     }

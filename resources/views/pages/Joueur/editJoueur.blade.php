@@ -7,7 +7,7 @@
 
     <form action="/modifier-joueur/{{$profil->id}}" enctype="multipart/form-data" class="bg-white container pt-2 pb-5 px-4 border border-dark rounded" method="post">
         @csrf
-        <h1 class="titre2 text-dark">Modification du joueur</h1>
+        <h1 class="titre2">Modification du joueur</h1>
 
         <div class="container mt-5">
         <div class="form-row">

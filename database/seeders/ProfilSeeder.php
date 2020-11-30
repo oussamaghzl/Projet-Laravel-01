@@ -51,7 +51,7 @@ class ProfilSeeder extends Seeder
                 'genre' => 'Homme',
                 'origin' => 'Algerie',
                 'photo' => 'head.png',
-                'equipes_id' => 2,
+                'equipes_id' => 3,
                 'poste_id' => 2,
              ],
              [
@@ -63,7 +63,7 @@ class ProfilSeeder extends Seeder
                 'genre' => 'Homme',
                 'origin' => 'Maroc',
                 'photo' => 'head2.png',
-                'equipes_id' => 1,
+                'equipes_id' => 3,
                 'poste_id' => 3,
              ],
          ]);

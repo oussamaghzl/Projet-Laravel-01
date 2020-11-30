@@ -4,28 +4,9 @@
     
     <h1 class="titre mb-5">Formulaire</h1>
 
-
-
       <form action="/create-joueur" enctype="multipart/form-data" class="bg-white container pt-2 pb-5 px-4 border border-dark rounded" method="post">
           @csrf
-
-          @if (session('status'))
-           <div class="alert alert-danger">
-            {{ session('status') }}
-          </div>
-          @endif
-          
-          @if ($errors->any())
-              <div class="alert alert-danger">
-                  <ul>
-                      @foreach ($errors->all() as $error)
-                          <li>{{ $error }}</li>
-                      @endforeach
-                  </ul>
-              </div>
-          @endif
-          
-          <h1 class="titre2 text-dark">S'inscrire</h1>
+          <h1 class="titre2">S'inscrire</h1>
 
           <div class="container mt-5">
           <div class="form-row">

@@ -8,7 +8,7 @@
     <div> 
 
         <a href="/equipe-coach">Creer une equipe</a>
-        <a href="/liste-equipe-coach">Liste des joueurs</a>
+        <a href="/listeJoueurCoach">Liste des joueurs</a>
         <a href="/dashboard-coach">DashBoard</a> 
 
     </div >

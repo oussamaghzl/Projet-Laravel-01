@@ -44,7 +44,6 @@ class PaysController extends Controller
         $equipe->ville=$request->ville;
         $equipe->nombres=$request->nombres;
         $equipe->pays_id=$request->pays_id;
-        $equipe->membres=0;
         $equipe->save();
 
         

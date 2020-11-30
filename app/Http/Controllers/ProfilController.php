@@ -17,8 +17,8 @@ class ProfilController extends Controller
         $profil =  Profil::all();
         $equipes = Equipe::all();
         $postes =  Poste::all();
-        $counter = 0;
-        return view('pages.Joueur.equipeJoueur', compact('counter','profil','equipes','postes'));
+
+        return view('pages.Joueur.equipeJoueur', compact('profil','equipes','postes'));
     }
 
     public function index2()
@@ -27,15 +27,8 @@ class ProfilController extends Controller
         $profil =  Profil::all();
         $equipes = Equipe::all();
         $postes =  Poste::all();
+
         return view('pages.Joueur.listeJoueur', compact('profil','equipes','postes'));
-    }
-    public function index3()
-    {
-        $profil =  Profil::all();
-        $equipes = Equipe::all();
-        $postes =  Poste::all();
-        $counter = 0;
-        return view('pages.Coach.listeJoueurCoach', compact('counter','profil','equipes','postes'));
     }
     public function create()
     {
@@ -48,7 +41,6 @@ class ProfilController extends Controller
 
     public function store(Request $request)
     {
-
         $validateForm = $request->validate([
             "nom" => "string|required",
             "prenom" => "string|required",
@@ -62,7 +54,6 @@ class ProfilController extends Controller
         ]);
 
         $profil=new Profil;
-
         $profil->nom=$request->nom;
         $profil->prenom=$request->prenom;
         $profil->age=$request->age;
@@ -73,21 +64,12 @@ class ProfilController extends Controller
         $profil->photo=$request->file('photo')->hashName();
         $profil->equipes_id=$request->equipes_id;
         $profil->poste_id=$request->poste_id;
-        
-        if($request->equipes_id==$profil->equipes_id && $profil->equipe->membres<$profil->equipe->nombres){
-            
-        $profil->equipe->increment("membres", 1);
+
         $profil->save();
+
         $request->file('photo')->storePublicly('images','public');
 
         return redirect()->back();
-
-        }else{
-
-            return redirect()->back()->with('status', "L'équipe est au complet!")->withInput();
-        }
-       
-
     }
 
 

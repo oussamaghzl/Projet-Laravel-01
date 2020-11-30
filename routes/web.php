@@ -1,7 +1,6 @@
 <?php
 
 use App\Http\Controllers\PaysController;
-use App\Http\Controllers\EquipeController;
 use App\Http\Controllers\ProfilController;
 use Illuminate\Support\Facades\Route;
 
@@ -26,15 +25,9 @@ Route::get('/inscription-joueur', [ProfilController::class, 'create']);
 
 Route::get('/liste-equipe-joueur', [ProfilController::class, 'index']);
 Route::get('/liste-joueur', [ProfilController::class, 'index2']);
-Route::get('/liste-equipe-coach', [ProfilController::class, 'index3']);
-
 
 Route::get('/show-joueur/{id}', [ProfilController::class, 'show']);
 Route::get('/edit-joueur/{id}', [ProfilController::class, 'edit']);
-
-
-Route::get('/show-equipe/{id}', [EquipeController::class, 'show']);
-
 
 
 Route::post('/create-joueur', [ProfilController::class, 'store']);
