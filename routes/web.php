@@ -25,36 +25,11 @@ Route::post('/create-joueur', [ProfilController::class, 'store']);
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 // Coach
 
 Route::get('/equipe-coach', [PaysController::class, 'index']);
 
-Route::get('/listeJoueurCoach', function () {
-    return view('pages.Coach.listeJoueurCoach');
-});
+Route::get('/listeJoueurCoach',[ProfilController::class,'index']);
 
 Route::get('/dashboard-coach', function () {
     return view('pages.Coach.dashboardCoach');
