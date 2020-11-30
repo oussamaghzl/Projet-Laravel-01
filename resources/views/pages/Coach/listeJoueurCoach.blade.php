@@ -4,6 +4,7 @@
     
     <h1 class="titre">Les equipes</h1>
 
+
     <div class="affichageEquipe row my-5">
         
         <div class="col-8 terrain" style="background-image: url('{{asset('img/terrain03.jpg')}}')">
@@ -53,16 +54,25 @@
                     </div>
                 </div>
                 </div>
+            </div>  
+
+            <div class="col-8">
+
+                @foreach ($profil as $item)
+    
+                    @if($loop->iteration % 2 == 0)     
+                        </div>     
+                        <div class="row">
+                            <div class="col-6">
+                                <div class="carte carte1" style="background-image: url('{{asset('img/carte.png')}}')">
+    
+                                <img class="contact" src="{{asset('images/' . $item->photo)}}" alt="">
+            
+                    @endif
+                            </div>
+    
+                @endforeach
             </div>
-
-            <img class="carte1 carte" data-toggle="modal" data-target="#exampleModal" src="{{asset('img/carte.png')}}" alt="">
-
-
-            <img class="carte2 carte" src="{{asset('img/carte.png')}}" alt="">
-            <img class="carte3 carte" src="{{asset('img/carte.png')}}" alt="">
-            <img class="carte4 carte" src="{{asset('img/carte.png')}}" alt="">
-            <img class="carte5 carte" src="{{asset('img/carte.png')}}" alt="">
-            <img class="carte6 carte" src="{{asset('img/carte.png')}}" alt="">
 
 
         </div>
@@ -70,5 +80,22 @@
             <h1 class="titre">Equipe 01</h1>
         </div>
     </div>
+
+       
+
+{{--      
+    <h3></h3>
+    <h3>{{$item->prenom}}</h3>
+    <h3>{{$item->age}}</h3>
+    <h3>{{$item->numeros}}</h3>
+    <h3>{{$item->email}}</h3>
+    <h3>{{$item->genre}}</h3>
+    <h3>{{$item->origin}}</h3>
+    <h3></h3>
+    <h3>{{$item->poste->poste}}</h3> --}}
+    
+
+   
+   
 
 @endsection

@@ -7,6 +7,8 @@
     <title>Ultimate Volleyball</title>
     <link rel="stylesheet" href="{{asset('css/app.css')}}">
     <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+<link href="https://fonts.googleapis.com/css2?family=Hind+Madurai:wght@300&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Ranchers&family=Shadows+Into+Light&display=swap" rel="stylesheet">
 </head>
 <body>

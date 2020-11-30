@@ -4,32 +4,31 @@ namespace App\Http\Controllers;
 
 use App\Models\Equipe;
 use App\Models\Pays;
-use App\Models\Photo;
 use App\Models\Poste;
 use App\Models\Profil;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Storage;
 
 class ProfilController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
+
     public function index()
     {
-        $pays = Pays::all();
+        $profil =  Profil::all();
         $equipes = Equipe::all();
-        $postes = Poste::all();
-        return view('pages.Joueur.equipeJoueur', compact('pays','equipes','postes'));
-    
+        $postes =  Poste::all();
+
+        return view('pages.Coach.listeJoueurCoach', compact('profil','equipes','postes'));
     }
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
+    public function index2()
+    {
+        $profil =  Profil::all();
+        $equipes = Equipe::all();
+        $postes =  Poste::all();
+
+        return view('pages.Joueur.listeJoueur', compact('profil','equipes','postes'));
+    }
     public function create()
     {
         $pays = Pays::all();
@@ -39,12 +38,6 @@ class ProfilController extends Controller
     
     }
 
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
     public function store(Request $request)
     {
         $profil=new Profil;
@@ -66,15 +59,15 @@ class ProfilController extends Controller
         return redirect()->back();
     }
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  \App\Models\Profil  $profil
-     * @return \Illuminate\Http\Response
-     */
-    public function show(Profil $profil)
+
+    public function show($id)
     {
-        //
+        $profil =  Profil::find($id);
+        $equipes = Equipe::find($id);
+        $postes =  Poste::find($id);
+
+        return view('pages.Joueur.show.showJoueur', compact('profil','equipes','postes'));
+    
     }
 
     /**
@@ -83,9 +76,14 @@ class ProfilController extends Controller
      * @param  \App\Models\Profil  $profil
      * @return \Illuminate\Http\Response
      */
-    public function edit(Profil $profil)
+    public function edit($id)
     {
-        //
+        $profil =  Profil::find($id);
+        $equipes = Equipe::all();
+        $postes =  Poste::all();
+
+        return view('pages.Joueur.editJoueur', compact('profil','equipes','postes'));
+    
     }
 
     /**
@@ -95,7 +93,7 @@ class ProfilController extends Controller
      * @param  \App\Models\Profil  $profil
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Profil $profil)
+    public function update(Request $request, $id)
     {
         //
     }
@@ -106,8 +104,13 @@ class ProfilController extends Controller
      * @param  \App\Models\Profil  $profil
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Profil $profil)
+    public function destroy($id)
     {
-        //
+        $Profil = Profil::find($id);
+        $Profil->delete();
+        
+        Storage::disk('public')->delete('images/' . $Profil->photo);
+
+        return redirect()->back();
     }
 }

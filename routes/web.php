@@ -20,29 +20,18 @@ Route::get('/', function () {
 });
 
 
+
 Route::get('/inscription-joueur', [ProfilController::class, 'create']);
-Route::post('/create-joueur', [ProfilController::class, 'store']);
 
 Route::get('/liste-equipe-joueur', [ProfilController::class, 'index']);
+Route::get('/liste-joueur', [ProfilController::class, 'index2']);
+
+Route::get('/show-joueur/{id}', [ProfilController::class, 'show']);
+Route::get('/edit-joueur/{id}', [ProfilController::class, 'edit']);
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+Route::post('/create-joueur', [ProfilController::class, 'store']);
+Route::post('/supprimer-joueur/{id}', [ProfilController::class, 'destroy']);
 
 
 
@@ -53,9 +42,7 @@ Route::get('/liste-equipe-joueur', [ProfilController::class, 'index']);
 
 Route::get('/equipe-coach', [PaysController::class, 'index']);
 
-Route::get('/listeJoueurCoach', function () {
-    return view('pages.Coach.listeJoueurCoach');
-});
+Route::get('/listeJoueurCoach',[ProfilController::class,'index']);
 
 Route::get('/dashboard-coach', function () {
     return view('pages.Coach.dashboardCoach');

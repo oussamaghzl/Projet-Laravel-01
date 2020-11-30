@@ -18,7 +18,7 @@ class DatabaseSeeder extends Seeder
             PaysSeeder::class,
             PosteSeeder::class,
             EquipeSeeder::class,
-
+            ProfilSeeder::class,
         ]);
     }
 }
