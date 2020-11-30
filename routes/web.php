@@ -31,6 +31,7 @@ Route::get('/edit-joueur/{id}', [ProfilController::class, 'edit']);
 
 
 Route::post('/create-joueur', [ProfilController::class, 'store']);
+Route::post('/modifier-joueur/{id}', [ProfilController::class, 'update']);
 Route::post('/supprimer-joueur/{id}', [ProfilController::class, 'destroy']);
 
 

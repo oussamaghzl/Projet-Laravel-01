@@ -5,7 +5,7 @@
     <h1 class="titre mb-5">...</h1>
 
 
-    <form action="" enctype="multipart/form-data" class="bg-white container pt-2 pb-5 px-4 border border-dark rounded" method="post">
+    <form action="/modifier-joueur/{{$profil->id}}" enctype="multipart/form-data" class="bg-white container pt-2 pb-5 px-4 border border-dark rounded" method="post">
         @csrf
         <h1 class="titre2">Modification du joueur</h1>
 
@@ -25,7 +25,7 @@
               </div>
               <div class="form-group col-md-6">
                 <label for="inputCity">Pays d'origine</label>
-                <input type="text" value="{{$profil->pays}}" class="form-control" id="inputCity" name="origin">
+                <input type="text" value="{{$profil->origin}}" class="form-control" id="inputCity" name="origin">
               </div>
             <div class="form-group col-md-6">
                 <label for="inputCity">Numero de telephone</label>
@@ -39,7 +39,7 @@
         <div class="form-row">
             <div class="form-group mx-3">
               <label for="inputState">Genre</label>
-              <select id="inputState" class="form-control" name="genre">
+              <select id="inputState" class="form-control" value="{{$profil->genre}}" name="genre">
                 <option selected>Homme</option>
                 <option>Femme</option>
                 <option>Autres</option>
@@ -70,7 +70,7 @@
 
             <div class="form-group mx-5 pt-4">
               <label for="imagee">Votre photo</label>
-              <input type="file" name="photo" id="imagee">
+              <input type="file" value="{{$profil->src}}" name="photo" id="imagee">
             </div>
           </div>
     </div>

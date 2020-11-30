@@ -41,6 +41,18 @@ class ProfilController extends Controller
 
     public function store(Request $request)
     {
+        $validateForm = $request->validate([
+            "nom" => "string|required",
+            "prenom" => "string|required",
+            "age" => "integer|required",
+            "numeros" => "string|required",
+            "email" => "required",
+            "genre" => "required",
+            "photo" => "required",
+            "equipes_id" => "required",
+            "poste_id" => "required",
+        ]);
+
         $profil=new Profil;
         $profil->nom=$request->nom;
         $profil->prenom=$request->prenom;
@@ -64,8 +76,8 @@ class ProfilController extends Controller
     public function show($id)
     {
         $profil =  Profil::find($id);
-        $equipes = Equipe::find($id);
-        $postes =  Poste::find($id);
+        $equipes = Equipe::all();
+        $postes =  Poste::all();
 
         return view('pages.Joueur.show.showJoueur', compact('profil','equipes','postes'));
     
@@ -96,7 +108,38 @@ class ProfilController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $validateForm = $request->validate([
+            "nom" => "required",
+            "prenom" => "required",
+            "age" => "required",
+            "numeros" => "required",
+            "email" => "required",
+            "genre" => "required",
+            "photo" => "required",
+            "equipes_id" => "required",
+            "poste_id" => "required",
+        ]);
+
+        $profil= Profil::find($id);
+
+        $profil->nom=$request->nom;
+        $profil->prenom=$request->prenom;
+        $profil->age=$request->age;
+        $profil->numeros=$request->numeros;
+        $profil->email=$request->email;
+        $profil->genre=$request->genre;
+        $profil->origin=$request->origin;
+        $profil->photo=$request->file('photo')->hashName();
+        $profil->equipes_id=$request->equipes_id;
+        $profil->poste_id=$request->poste_id;
+
+        $profil->save();
+
+        Storage::disk('public')->delete('images/' . $profil->url);
+
+        $request->file('photo')->storePublicly('images','public');
+
+        return redirect()->back();
     }
 
     /**

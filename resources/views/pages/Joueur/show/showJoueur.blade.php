@@ -15,7 +15,7 @@
             <p class="texte-show">Numero de telephone: {{$profil->numeros}}</p>
             <p class="texte-show">Equipe du joueur: {{$profil->equipe->equipe}}</p>
             <p class="texte-show">Poste du joueur: {{$profil->poste->poste}}</p>
-    
+
         </div>
     
         <div class="col-6">
