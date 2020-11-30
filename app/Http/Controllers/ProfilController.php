@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use App\Models\Equipe;
 use App\Models\Pays;
+use App\Models\Photo;
+use App\Models\Poste;
 use App\Models\Profil;
 use Illuminate\Http\Request;
 
@@ -26,7 +28,11 @@ class ProfilController extends Controller
      */
     public function create()
     {
-        //
+        $pays = Pays::all();
+        $equipes = Equipe::all();
+        $postes = Poste::all();
+        return view('pages.Joueur.createJoueur', compact('pays','equipes','postes'));
+    
     }
 
     /**
@@ -39,23 +45,19 @@ class ProfilController extends Controller
     {
         $profil=new Profil;
         $profil->nom=$request->nom;
-        $profil->age=$request->age;
         $profil->prenom=$request->prenom;
+        $profil->age=$request->age;
         $profil->numeros=$request->numeros;
-        $profil->poste=$request->poste;
         $profil->email=$request->email;
         $profil->genre=$request->genre;
+        $profil->origin=$request->origin;
+        $profil->photo=$request->file('photo')->hashName();
+        $profil->equipes_id=$request->equipes_id;
+        $profil->poste_id=$request->poste_id;
+
         $profil->save();
 
-        $pays=new Pays();
-        $pays->pays=$request->pays;
-        $pays->profil_id=$profil->id;
-        $pays->save();
-
-        $equipe=new Equipe();
-        $equipe->equipe=$request->equipe;
-        $equipe->profil_id=$profil->id;
-        $equipe->save();
+        $request->file('photo')->storePublicly('images','public');
 
         return redirect()->back();
     }

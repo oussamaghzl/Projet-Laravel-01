@@ -1,5 +1,7 @@
 <?php
 
+use App\Http\Controllers\PaysController;
+use App\Http\Controllers\ProfilController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -17,15 +19,43 @@ Route::get('/', function () {
     return view('home');
 });
 
+
+Route::get('/inscription-joueur', [ProfilController::class, 'create']);
+Route::post('/create-joueur', [ProfilController::class, 'store']);
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 // Coach
 
+Route::get('/equipe-coach', [PaysController::class, 'index']);
 
-Route::get('/equipe-coach', function () {
-    return view('pages.Coach.equipeCoach');
-});
-Route::get('/liste-joueur-coach', function () {
+Route::get('/listeJoueurCoach', function () {
     return view('pages.Coach.listeJoueurCoach');
 });
+
 Route::get('/dashboard-coach', function () {
     return view('pages.Coach.dashboardCoach');
 });
@@ -35,14 +65,10 @@ Route::get('/contact-coach', function () {
 
 Route::post('/profil-coach',[ProfilController::class, 'store']);
 
+Route::post('/store-equipe',[PaysController::class, 'store']);
 
 //Joueur
-Route::get('/inscription-joueur', function () {
-    return view('pages.Joueur.createJoueur');
-});
-Route::get('/equipe-joueur', function () {
-    return view('pages.Joueur.equipeJoueur');
-});
+
 Route::get('/liste-joueur-joueur', function () {
     return view('pages.Joueur.listeJoueur');
 });

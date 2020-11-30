@@ -27,6 +27,10 @@ class PaysSeeder extends Seeder
                 'pays' => 'Espagne',
                 'continent' => 'Europe'
             ],
+            [
+                'pays' => 'Rien',
+                'continent' => 'Rien'
+            ],
         ]);
     }
 }

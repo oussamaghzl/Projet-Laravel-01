@@ -18,17 +18,15 @@ class CreateProfilsTable extends Migration
             $table->string('nom');
             $table->string('prenom');
             $table->integer('age');
-            $table->integer('numeros');
+            $table->string('numeros');
             $table->string('email');
             $table->string('genre');
-            $table->string("poste");
             $table->string("origin");
-
+            $table->string("photo");
             $table->unsignedBigInteger('equipes_id');
             $table->foreign('equipes_id')->references('id')->on('equipes');
-            $table->unsignedBigInteger('photo_id');
-            $table->foreign('photo_id')->references('id')->on('photos');
-            
+            $table->unsignedBigInteger('poste_id');
+            $table->foreign('poste_id')->references('id')->on('postes');
             $table->timestamps();
         });
     }

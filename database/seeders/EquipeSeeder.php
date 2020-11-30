@@ -14,29 +14,37 @@ class EquipeSeeder extends Seeder
      */
     public function run()
     {
-        // DB::table('equipes')->insert([
-        //     [
-        //         'coach' => 'Zidane',
-        //         'nom' => 'Real Madrid',
-        //         'ville' => 'Madrid',
-        //         'nombres' => '6',
-        //         'pays' => 3,
+        
+         DB::table('equipes')->insert([
+             [
+                'coach' => 'Pas de coach',
+                'equipe' => "Pas d'equipe",
+                'ville' => 'Rien',
+                'nombres' => '10',
+                'pays_id' => 4,
+             ],
+             [
+                 'coach' => 'Zidane',
+                 'equipe' => 'Real Madrid',
+                 'ville' => 'Madrid',
+                 'nombres' => '6',
+                 'pays_id' => 3,
 
-        //     ],
-        //     [
-        //         'coach' => 'Abdelmajid',
-        //         'nom' => 'Lakers',
-        //         'ville' => 'Tanger',
-        //         'nombres' => '5',
-        //         'pays' => 2,
-        //     ],
-        //     [
-        //         'coach' => 'Oussama',
-        //         'nom' => 'Toronto Raptors',
-        //         'ville' => 'Oran',
-        //         'nombres' => '7',
-        //         'pays' => 1,
-        //     ],
-        // ]);
+             ],
+             [
+                 'coach' => 'Abdelmajid',
+                 'equipe' => 'Lakers',
+                 'ville' => 'Tanger',
+                 'nombres' => '5',
+                 'pays_id' => 2,
+             ],
+             [
+                 'coach' => 'Oussama',
+                 'equipe' => 'Toronto Raptors',
+                 'ville' => 'Oran',
+                 'nombres' => '7',
+                 'pays_id' => 1,
+             ],
+         ]);
     }
 }

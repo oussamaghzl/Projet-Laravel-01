@@ -3,6 +3,7 @@
 namespace Database\Seeders;
 
 use Illuminate\Database\Seeder;
+use Illuminate\Support\Facades\DB;
 
 class PosteSeeder extends Seeder
 {
@@ -13,6 +14,19 @@ class PosteSeeder extends Seeder
      */
     public function run()
     {
-        //
+        DB::table('postes')->insert([
+            [
+                'poste' => 'avant',
+            ],
+            [
+                'poste' => 'central',
+            ],
+            [
+                'poste' => 'arrière',
+            ],
+            [
+                'poste' => 'remplaçant',
+            ],
+        ]);
     }
 }

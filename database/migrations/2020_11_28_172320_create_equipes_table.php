@@ -19,11 +19,10 @@ class CreateEquipesTable extends Migration
 
             $table->string('coach');
             $table->string("equipe");
-            $table->string("ville");
-            $table->integer('nombres');
-            $table->unsignedBigInteger('pays_id');
-            $table->foreign('pays_id')->references('id')->on('pays');
-
+            $table->string("ville")->nullable();
+            $table->integer('nombres')->nullable();
+            $table->unsignedBigInteger('pays_id')->nullable();
+            $table->foreign('pays_id')->references('id')->on('pays')->onDelete('cascade');        
             $table->timestamps();
             
         });

@@ -11,7 +11,6 @@
         <a href="/equipe-joueur">Les équipes</a>
         <a href="/liste-joueur-joueur">Liste joueurs</a>
         <a href="/dashboard-joueur">DashBoard</a> 
-        <a href="/contact-joueur">Contact</a> 
 
     </div >
 
