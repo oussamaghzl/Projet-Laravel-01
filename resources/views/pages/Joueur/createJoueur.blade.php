@@ -10,10 +10,11 @@
           @csrf
 
           @if (session('status'))
-           <div class="alert alert-success">
+           <div class="alert alert-danger">
             {{ session('status') }}
           </div>
           @endif
+          
           <h1 class="titre2">S'inscrire</h1>
 
           <div class="container mt-5">
