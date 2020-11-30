@@ -18,11 +18,12 @@ class ProfilController extends Controller
         $equipes = Equipe::all();
         $postes =  Poste::all();
 
-        return view('pages.Coach.listeJoueurCoach', compact('profil','equipes','postes'));
+        return view('pages.Joueur.equipeJoueur', compact('profil','equipes','postes'));
     }
 
     public function index2()
     {
+
         $profil =  Profil::all();
         $equipes = Equipe::all();
         $postes =  Poste::all();
