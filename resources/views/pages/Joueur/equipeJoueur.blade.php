@@ -2,29 +2,35 @@
 
 @section('content')
     
-    <h1 class="titre">Les equipes</h1>
+    <h1 class="titre">Mon equipe</h1>
 
-    <div class="affichageEquipe row my-5">
-        
-        <div class="col-8 terrain" style="background-image: url('{{asset('img/terrain03.jpg')}}')">
 
+        <div class="form-group text-center mx-3">
+            
+
+            
+            <label class="titre" for="inputState">Choisissez votre equipe </label>
+            <div class=" bordure">
+                @foreach ($equipes as $item)
+                    <div class="row my-3">
+                        <div class="col-6 dddd">
+                            <label class="form-check-label" for="exampleRadios1">
+                                {{$item->equipe}}
+                            </label>
+                        </div>
+                        <div class="col-6">
+                            <a href="/show-equipe/{{$item->id}}">            
+                                <button class="btn btn-primary"> Afficher equipe</button>
+                            </a>
+                        </div>
                         
-
-            <div >
-                <img class="carte1 carte" src="{{asset('img/carte.png')}}" alt="">
-                
+                    </div>
+                 @endforeach
             </div>
-            <img class="carte2 carte" src="{{asset('img/carte.png')}}" alt="">
-            <img class="carte3 carte" src="{{asset('img/carte.png')}}" alt="">
-            <img class="carte4 carte" src="{{asset('img/carte.png')}}" alt="">
-            <img class="carte5 carte" src="{{asset('img/carte.png')}}" alt="">
-            <img class="carte6 carte" src="{{asset('img/carte.png')}}" alt="">
-
-
-        </div>
-        <div class="col-4 equipeNom">
-            <h1 class="titre">Equipe 01</h1>
-        </div>
-    </div>
-
+            
+          
+            
+          </div>
+             
+    
 @endsection

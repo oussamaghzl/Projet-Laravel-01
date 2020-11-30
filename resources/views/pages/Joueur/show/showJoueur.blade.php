@@ -6,7 +6,7 @@
 
     <div class="row d-flex show">
         
-        <div class="col-6 ">
+        <div class="col-6 text-white">
             <p class="texte-show">Nom: {{$profil->nom}}</p>
             <p class="texte-show">Prenom: {{$profil->prenom}}</p>
             <p class="texte-show">Age: {{$profil->age}}</p>

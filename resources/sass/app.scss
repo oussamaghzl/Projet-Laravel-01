@@ -17,6 +17,10 @@
 
 @import './modules/_footer.sass';
 
+
 body{
     overflow-x: hidden;
+    background-size: cover;
+    background-position: center;
+    height: 100vh;
 }

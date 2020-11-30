@@ -6,7 +6,23 @@
 <h1 class="titre">Créer votre équipes</h1>
 <form action="/store-equipe" method="post">
     @csrf
-    <div class="container mt-5">
+    @if (session('status'))
+      <div class="alert alert-danger">
+        {{ session('status') }}
+      </div>
+    @endif
+          
+    @if ($errors->any())
+      <div class="alert alert-danger">
+        <ul>
+            @foreach ($errors->all() as $error)
+              <li>{{ $error }}</li>
+            @endforeach
+        </ul>
+      </div>
+    @endif
+
+    <div class="container bg-white py-4 px-5 mt-5">
     <div class="form-row">
 
         <div class="form-group col-md-6">
